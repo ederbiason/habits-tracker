@@ -43,7 +43,7 @@ export function Home() {
         fetchData()
     }, [])
 
-    if (!loading) {
+    if (loading) {
         return (
             <Loading />
         )
