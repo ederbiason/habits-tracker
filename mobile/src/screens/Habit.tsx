@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { Loading } from '../components/Loading'
 import { api } from '../lib/axios'
 import { generateProgressPercentage } from '../utils/generate-progress-percentage'
+import { HabitsEmpty } from '../components/HabitsEmpty'
 
 interface Params {
   date: string
@@ -33,8 +34,8 @@ export function Habit() {
   const dayOfWeek = parsedDate.format('dddd')
   const dayAndMonth = parsedDate.format('DD/MM')
 
-  const habitsProgress = dayInfo?.possibleHabits 
-    ? generateProgressPercentage(dayInfo.possibleHabits.length, completedHabits.length) 
+  const habitsProgress = dayInfo?.possibleHabits
+    ? generateProgressPercentage(dayInfo.possibleHabits.length, completedHabits.length)
     : 0
 
   async function fetchHabits() {
@@ -59,7 +60,7 @@ export function Habit() {
   }
 
   async function handleToggleHabit(habitId: string) {
-    if(completedHabits.includes(habitId)) {
+    if (completedHabits.includes(habitId)) {
       setCompletedHabits(prevState => prevState.filter(habit => habit !== habitId))
     } else {
       setCompletedHabits(prevState => [...prevState, habitId])
@@ -97,7 +98,8 @@ export function Habit() {
 
         <View className='mt-6'>
           {
-            dayInfo?.possibleHabits &&
+            dayInfo?.possibleHabits
+              ?
               dayInfo?.possibleHabits.map((habit) => (
                 <Checkbox
                   key={habit.id}
@@ -106,6 +108,8 @@ export function Habit() {
                   onPress={() => handleToggleHabit(habit.id)}
                 />
               ))
+              :
+              <HabitsEmpty />
           }
         </View>
       </ScrollView>
