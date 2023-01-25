@@ -1,15 +1,17 @@
 import { useRoute } from '@react-navigation/native'
 import { ScrollView, View, Text, Alert } from 'react-native'
-import { BackButton } from '../components/BackButton'
-import dayjs from 'dayjs'
-import { ProgressBar } from '../components/ProgressBar'
-import { Checkbox } from '../components/Checkbox'
 import { useEffect, useState } from 'react'
-import { Loading } from '../components/Loading'
+import clsx from 'clsx'
+import dayjs from 'dayjs'
+
 import { api } from '../lib/axios'
 import { generateProgressPercentage } from '../utils/generate-progress-percentage'
+
+import { Loading } from '../components/Loading'
 import { HabitsEmpty } from '../components/HabitsEmpty'
-import clsx from 'clsx'
+import { Checkbox } from '../components/Checkbox'
+import { ProgressBar } from '../components/ProgressBar'
+import { BackButton } from '../components/BackButton'
 
 interface Params {
   date: string
@@ -62,10 +64,19 @@ export function Habit() {
   }
 
   async function handleToggleHabit(habitId: string) {
-    if (completedHabits.includes(habitId)) {
-      setCompletedHabits(prevState => prevState.filter(habit => habit !== habitId))
-    } else {
-      setCompletedHabits(prevState => [...prevState, habitId])
+    try {
+      await api.patch(`/habits/${habitId}/toggle`)
+
+      if (completedHabits.includes(habitId)) {
+        setCompletedHabits(prevState => prevState.filter(habit => habit !== habitId))
+      } else {
+        setCompletedHabits(prevState => [...prevState, habitId])
+      }
+    } catch (error) {
+      console.log(error)
+      Alert.alert('Ops', 'Não foi possível atualizar o status do hábito')
+    } finally {
+      
     }
   }
 

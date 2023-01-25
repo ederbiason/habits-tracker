@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { View, ScrollView, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
 import { Feather } from '@expo/vector-icons'
-import { BackButton } from '../components/BackButton'
-import { Checkbox } from '../components/Checkbox'
 import colors from 'tailwindcss/colors'
 import { api } from '../lib/axios'
+
+import { BackButton } from '../components/BackButton'
+import { Checkbox } from '../components/Checkbox'
 
 const avaiableWeekDays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 
