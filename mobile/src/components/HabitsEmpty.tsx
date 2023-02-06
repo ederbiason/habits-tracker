@@ -9,7 +9,7 @@ export function HabitsEmpty() {
         Você ainda não está monitorando nenhum hábito. {' '}
 
         <Text 
-            className='text-violet-400 text-base underline underline-offset-2 active:text-violet-500'
+            className='text-red-400 text-base underline underline-offset-2 active:text-red-500'
             onPress={() => navigate('new')}
         >
             Comece cadastrando um.
