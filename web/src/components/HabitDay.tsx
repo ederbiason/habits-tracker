@@ -30,7 +30,7 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
                     'bg-zinc-900 border-zinc-800': completedPercentage === 0,
                     'bg-red-900 border-red-700': completedPercentage > 0 && completedPercentage < 20,
                     'bg-red-800 border-red-600': completedPercentage >= 20 && completedPercentage < 40,
-                    'bg-red-700 border-red-500': completedPercentage >= 50 && completedPercentage < 70,
+                    'bg-red-700 border-red-500': completedPercentage >= 40 && completedPercentage < 60,
                     'bg-red-600 border-red-500': completedPercentage >= 60 && completedPercentage < 80,
                     'bg-red-500 border-red-400': completedPercentage >= 80,
                 })}
