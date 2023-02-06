@@ -26,13 +26,13 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayPro
     return (
         <Popover.Root>
             <Popover.Trigger
-                className={clsx('w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-700 focus:ring-offset-2 focus:ring-offset-background', {
+                className={clsx('w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 focus:ring-offset-background', {
                     'bg-zinc-900 border-zinc-800': completedPercentage === 0,
-                    'bg-violet-900 border-violet-700': completedPercentage > 0 && completedPercentage < 20,
-                    'bg-violet-800 border-violet-600': completedPercentage >= 20 && completedPercentage < 40,
-                    'bg-violet-700 border-violet-500': completedPercentage >= 50 && completedPercentage < 70,
-                    'bg-violet-600 border-violet-500': completedPercentage >= 60 && completedPercentage < 80,
-                    'bg-violet-500 border-violet-400': completedPercentage >= 80,
+                    'bg-red-900 border-red-700': completedPercentage > 0 && completedPercentage < 20,
+                    'bg-red-800 border-red-600': completedPercentage >= 20 && completedPercentage < 40,
+                    'bg-red-700 border-red-500': completedPercentage >= 50 && completedPercentage < 70,
+                    'bg-red-600 border-red-500': completedPercentage >= 60 && completedPercentage < 80,
+                    'bg-red-500 border-red-400': completedPercentage >= 80,
                 })}
             />
 

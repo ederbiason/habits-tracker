@@ -28,7 +28,7 @@ navigator.serviceWorker.register('service-worker.js')
 
 export function App() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="w-screen h-screen flex justify-center items-center bg-background bg-opacity-50">
       <div className='w-full max-w-5xl px-6 flex flex-col gap-16'>
         <Header />
         <SummaryTable />
