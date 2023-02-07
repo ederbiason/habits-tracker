@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.ibb.co/WxmjrPq/Cover.png" alt="Logo" width="300"/>
+  <img src="https://i.ibb.co/WxmjrPq/Cover.png" alt="Logo"/>
 </p>
 <h3 align="center">
     Constancy is the key to excellence
